@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About – Karan Jee</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/nav.css"/>
+  <link rel="stylesheet" href="../css/components.css"/>
+  <style>
+    .about-full-grid { display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:5rem; }
+    .about-full-grid p { font-size:1.05rem;line-height:1.85;color:var(--muted);margin-bottom:1.2rem; }
+    .about-full-grid p strong { color:var(--text); }
+    .values-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem; }
+    .value-card {
+      background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+      padding:2rem;transition:all 0.3s;
+    }
+    .value-card:hover { border-color:var(--accent);transform:translateY(-4px); }
+    .value-icon { font-size:2rem;margin-bottom:1rem; }
+    .value-title { font-size:1rem;font-weight:700;margin-bottom:0.6rem; }
+    .value-desc { font-size:0.9rem;color:var(--muted);line-height:1.65; }
+    .timeline { position:relative;padding-left:2rem; }
+    .timeline::before { content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border); }
+    .timeline-item { position:relative;padding-bottom:2.5rem; }
+    .timeline-item::before {
+      content:'';position:absolute;left:-2.4rem;top:0.3rem;
+      width:10px;height:10px;border-radius:50%;background:var(--accent);
+      box-shadow:0 0 12px var(--accent);
+    }
+    .timeline-year { font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent);letter-spacing:0.1em;margin-bottom:0.4rem; }
+    .timeline-title { font-size:1rem;font-weight:700;margin-bottom:0.3rem; }
+    .timeline-sub { font-size:0.88rem;color:var(--muted); }
+    @media (max-width:768px) { .about-full-grid { grid-template-columns:1fr;gap:2rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">KJ.</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">HOME</a></li>
+    <li><a href="about.html" class="active">ABOUT</a></li>
+    <li><a href="projects.html">PROJECTS</a></li>
+    <li><a href="skills.html">SKILLS</a></li>
+    <li><a href="contact.html" class="nav-cta">CONTACT</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="skills.html">Skills</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="section-label">// ABOUT ME</div>
+  <h1>The Person<br/><span style="background:linear-gradient(135deg,#00e5ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Behind the Code.</span></h1>
+  <p>Developer. Problem-solver. Perpetual learner.</p>
+</div>
+
+<div class="section-divider"></div>
+
+<section>
+  <div class="about-full-grid">
+    <div class="reveal">
+      <div class="section-label">// MY STORY</div>
+      <h2 class="section-title" style="font-size:2rem;margin-bottom:1.5rem;">Who I Am</h2>
+      <p>I'm <strong>Karan Jee</strong>, a Web Developer with a Bachelor's in Computer Science from XYZ University. My passion for web development began with curiosity about how the internet works — and it quickly turned into a career.</p>
+      <p>I specialize in building <strong>responsive, performant web applications</strong> using modern JavaScript technologies. From crafting pixel-perfect UIs with React to architecting RESTful APIs with Node.js and Express, I love the full spectrum of web development.</p>
+      <p>Currently working as a <strong>Junior Web Developer at ABC Tech Solutions</strong>, I collaborate with cross-functional teams to deliver real-world products that make a difference for users.</p>
+    </div>
+    <div class="reveal">
+      <div class="section-label">// TIMELINE</div>
+      <h2 class="section-title" style="font-size:2rem;margin-bottom:1.5rem;">My Journey</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">JUNE 2023 — PRESENT</div>
+          <div class="timeline-title">Junior Web Developer</div>
+          <div class="timeline-sub">ABC Tech Solutions</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-title">Bachelor of Computer Science</div>
+          <div class="timeline-sub">XYZ University — Graduated</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2022</div>
+          <div class="timeline-title">First Full-Stack Project</div>
+          <div class="timeline-sub">Built Task Manager App with Node.js + MongoDB</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2021</div>
+          <div class="timeline-title">Started Learning React</div>
+          <div class="timeline-sub">Dove deep into modern front-end development</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2019</div>
+          <div class="timeline-title">First Line of Code</div>
+          <div class="timeline-sub">HTML & CSS — the spark that started it all</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div class="section-label">// WHAT DRIVES ME</div>
+  <h2 class="section-title">My Values</h2>
+  <div class="values-grid">
+    <div class="value-card reveal">
+      <div class="value-icon">🎯</div>
+      <div class="value-title">User-First Thinking</div>
+      <div class="value-desc">Every line of code I write serves a user. I keep real people at the center of every design and engineering decision.</div>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">🔧</div>
+      <div class="value-title">Clean Code</div>
+      <div class="value-desc">I believe in writing readable, maintainable code that teams can understand and build on for years to come.</div>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">📚</div>
+      <div class="value-title">Continuous Learning</div>
+      <div class="value-desc">Technology evolves fast. I stay curious, embrace new tools, and never stop improving my craft.</div>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">🤝</div>
+      <div class="value-title">Collaboration</div>
+      <div class="value-desc">The best products are built by great teams. I thrive in collaborative environments and value diverse perspectives.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">KJ.</div>
+  <div class="footer-copy">© 2024 KARAN JEE</div>
+  <div class="footer-socials">
+    <a href="mailto:karan@example.com">EMAIL</a>
+    <a href="https://github.com/username" target="_blank">GITHUB</a>
+    <a href="https://linkedin.com/in/username" target="_blank">LINKEDIN</a>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/animations.js"></script>
+</body>
+</html>

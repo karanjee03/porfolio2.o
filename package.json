@@ -1,0 +1,18 @@
+{
+  "name": "karan-portfolio",
+  "version": "1.0.0",
+  "description": "Karan Jee Portfolio Website",
+  "main": "index.html",
+  "scripts": {
+    "compile-sass": "sass scss/main.scss css/style.css --watch",
+    "build": "sass scss/main.scss css/style.css --no-source-map",
+    "dev": "npm run compile-sass"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "jquery": "^3.7.1"
+  }
+}
