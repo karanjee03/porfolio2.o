@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Site Manager - Advanced Site Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+                <div class="sidebar-sticky">
+                    <div class="sidebar-header">
+                        <h4><i class="fas fa-globe"></i> MultiSite Manager</h4>
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#overview">
+                                <i class="fas fa-tachometer-alt"></i> Overview
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sites">
+                                <i class="fas fa-server"></i> All Sites
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#templates">
+                                <i class="fas fa-copy"></i> Templates
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#domains">
+                                <i class="fas fa-globe-americas"></i> Domains
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#analytics">
+                                <i class="fas fa-chart-line"></i> Analytics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#automation">
+                                <i class="fas fa-robot"></i> Automation
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Multi-Site Management Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="exportData()">
+                                <i class="fas fa-download"></i> Export
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="importData()">
+                                <i class="fas fa-upload"></i> Import
+                            </button>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="showCreateSiteModal()">
+                            <i class="fas fa-plus"></i> Create New Site
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Overview Stats -->
+                <div class="row mb-4">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Sites</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="totalSites">0</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-server fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Active Sites</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="activeSites">0</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-check-circle fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Visitors</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="totalVisitors">0</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Deployments</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="totalDeployments">0</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-rocket fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sites Grid -->
+                <div class="row" id="sitesGrid">
+                    <!-- Sites will be dynamically loaded here -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Create Site Modal -->
+    <div class="modal fade" id="createSiteModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Site</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="createSiteForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Site Name</label>
+                                    <input type="text" class="form-control" name="siteName" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Domain</label>
+                                    <input type="text" class="form-control" name="domain" placeholder="example.com">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Site Template</label>
+                            <select class="form-select" name="template" onchange="updateTemplatePreview()">
+                                <option value="portfolio">Portfolio</option>
+                                <option value="business">Business</option>
+                                <option value="blog">Blog</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="landing">Landing Page</option>
+                                <option value="saas">SaaS Application</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Repository URL</label>
+                            <input type="url" class="form-control" name="repoUrl" placeholder="https://github.com/user/repo">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Primary Technology</label>
+                                    <select class="form-select" name="technology">
+                                        <option value="react">React</option>
+                                        <option value="vue">Vue.js</option>
+                                        <option value="angular">Angular</option>
+                                        <option value="html">HTML/CSS/JS</option>
+                                        <option value="nextjs">Next.js</option>
+                                        <option value="gatsby">Gatsby</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Deployment Platform</label>
+                                    <select class="form-select" name="platform">
+                                        <option value="github-pages">GitHub Pages</option>
+                                        <option value="netlify">Netlify</option>
+                                        <option value="vercel">Vercel</option>
+                                        <option value="aws">AWS S3</option>
+                                        <option value="firebase">Firebase Hosting</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" name="description" rows="3"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Features</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="features" value="analytics">
+                                        <label class="form-check-label">Analytics</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="features" value="seo">
+                                        <label class="form-check-label">SEO Optimization</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="features" value="pwa">
+                                        <label class="form-check-label">PWA</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="features" value="blog">
+                                        <label class="form-check-label">Blog System</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="features" value="ecommerce">
+                                        <label class="form-check-label">E-commerce</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="features" value="cms">
+                                        <label class="form-check-label">CMS Integration</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="createSite()">
+                        <i class="fas fa-rocket"></i> Create & Deploy Site
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Details Modal -->
+    <div class="modal fade" id="siteDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Site Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="siteDetailsContent">
+                    <!-- Site details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/multi-site-manager.js"></script>
+</body>
+</html>
