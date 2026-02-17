@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects – Karan Jee</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/nav.css"/>
+  <link rel="stylesheet" href="../css/components.css"/>
+  <style>
+    .projects-full-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:1.5rem; }
+    .project-card-large { grid-column: span 2; display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center; }
+    .project-card-large .project-desc { font-size:1rem; }
+    .filter-bar { display:flex;gap:0.7rem;flex-wrap:wrap;margin-bottom:3rem; }
+    .filter-btn {
+      font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;
+      padding:0.45rem 1.1rem;border-radius:2rem;border:1px solid var(--border);
+      color:var(--muted);background:transparent;cursor:pointer;transition:all 0.2s;
+    }
+    .filter-btn:hover,.filter-btn.active { border-color:var(--accent);color:var(--accent);background:rgba(0,229,255,0.07); }
+    @media (max-width:900px) {
+      .project-card-large { grid-column:span 1;grid-template-columns:1fr; }
+      .projects-full-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">KJ.</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="projects.html" class="active">PROJECTS</a></li>
+    <li><a href="skills.html">SKILLS</a></li>
+    <li><a href="contact.html" class="nav-cta">CONTACT</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="skills.html">Skills</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="section-label">// PROJECTS</div>
+  <h1>Things I've<br/><span style="background:linear-gradient(135deg,#00e5ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Built.</span></h1>
+  <p>A collection of projects that showcase my skills, creativity, and love for solving real problems with code.</p>
+</div>
+
+<div class="section-divider"></div>
+
+<section>
+  <!-- FILTER -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">ALL</button>
+    <button class="filter-btn" data-filter="react">REACT</button>
+    <button class="filter-btn" data-filter="node">NODE.JS</button>
+    <button class="filter-btn" data-filter="fullstack">FULL-STACK</button>
+  </div>
+
+  <div class="projects-full-grid">
+
+    <!-- FEATURED -->
+    <div class="project-card project-card-large reveal" data-tags="react">
+      <div>
+        <div class="project-number">FEATURED — PROJECT 01</div>
+        <div class="project-title" style="font-size:2rem;">Portfolio Website</div>
+        <p class="project-desc">A personal portfolio site built to showcase skills, projects, and professional journey. Designed with performance and aesthetics in mind — responsive across all devices, with smooth animations and clean architecture.</p>
+        <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span></div>
+        <div style="display:flex;gap:1rem;margin-top:1rem;">
+          <a href="https://github.com/username/portfolio" target="_blank" class="project-link">GitHub →</a>
+          <a href="#" class="btn-primary" style="font-size:0.8rem;padding:0.6rem 1.5rem;">Live Demo</a>
+        </div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:0.75rem;height:260px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--muted);letter-spacing:0.1em;">[ PREVIEW ]</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project-card reveal" data-tags="node fullstack">
+      <div class="project-number">PROJECT 02</div>
+      <div class="project-title">Task Manager App</div>
+      <p class="project-desc">A full-stack productivity application for managing daily tasks. Features user authentication, CRUD operations, task prioritization, and a clean, intuitive interface for maximum productivity.</p>
+      <div class="project-tech"><span>Node.js</span><span>Express</span><span>MongoDB</span></div>
+      <div style="display:flex;gap:1rem;">
+        <a href="https://github.com/username/task-manager" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 placeholder -->
+    <div class="project-card reveal" data-tags="react">
+      <div class="project-number">PROJECT 03</div>
+      <div class="project-title">Coming Soon</div>
+      <p class="project-desc">Always working on something new. Check back soon for the latest project — currently in development and almost ready to ship.</p>
+      <div class="project-tech"><span>React</span><span>TypeScript</span><span>TBD</span></div>
+      <a href="https://github.com/username" target="_blank" class="project-link">Follow on GitHub →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">KJ.</div>
+  <div class="footer-copy">© 2024 KARAN JEE</div>
+  <div class="footer-socials">
+    <a href="mailto:karan@example.com">EMAIL</a>
+    <a href="https://github.com/username" target="_blank">GITHUB</a>
+    <a href="https://linkedin.com/in/username" target="_blank">LINKEDIN</a>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/animations.js"></script>
+<script>
+  // Filter functionality
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.project-card').forEach(card => {
+        const tags = card.dataset.tags || '';
+        card.style.display = (filter === 'all' || tags.includes(filter)) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

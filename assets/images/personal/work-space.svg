@@ -1,0 +1,105 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="deskGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a2a3e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#111118;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#00e5ff;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0a0a0f"/>
+  
+  <!-- Desk -->
+  <rect x="0" y="350" width="800" height="150" fill="url(#deskGrad)"/>
+  <rect x="0" y="350" width="800" height="10" fill="#1e1e2e"/>
+  
+  <!-- Monitor -->
+  <rect x="250" y="150" width="300" height="200" rx="8" fill="#2a2a3e" stroke="#1e1e2e" stroke-width="2"/>
+  <rect x="260" y="160" width="280" height="180" rx="4" fill="url(#screenGrad)"/>
+  
+  <!-- Screen Content -->
+  <rect x="270" y="170" width="260" height="30" fill="#13131d"/>
+  <circle cx="290" cy="185" r="4" fill="#00e5ff"/>
+  <circle cx="305" cy="185" r="4" fill="#7c3aed"/>
+  <circle cx="320" cy="185" r="4" fill="#6b6b80"/>
+  
+  <!-- Code on Screen -->
+  <g font-family="monospace" font-size="8" fill="#00e5ff">
+    <text x="280" y="220">function createPortfolio() {</text>
+    <text x="290" y="235">  const skills = ["React", "Node.js"];</text>
+    <text x="290" y="250">  return "Amazing Portfolio";</text>
+    <text x="280" y="265">}</text>
+  </g>
+  
+  <!-- Keyboard -->
+  <rect x="200" y="360" width="400" height="120" rx="8" fill="#1a1a2e" stroke="#1e1e2e"/>
+  <g opacity="0.3">
+    <rect x="210" y="370" width="380" height="100" rx="4" fill="#0a0a0f"/>
+    <!-- Keys -->
+    <g fill="#2a2a3e">
+      <rect x="220" y="380" width="30" height="25" rx="3"/>
+      <rect x="255" y="380" width="30" height="25" rx="3"/>
+      <rect x="290" y="380" width="30" height="25" rx="3"/>
+      <rect x="325" y="380" width="30" height="25" rx="3"/>
+      <rect x="360" y="380" width="30" height="25" rx="3"/>
+      <rect x="395" y="380" width="30" height="25" rx="3"/>
+      <rect x="430" y="380" width="30" height="25" rx="3"/>
+      <rect x="465" y="380" width="30" height="25" rx="3"/>
+      <rect x="500" y="380" width="30" height="25" rx="3"/>
+      <rect x="535" y="380" width="30" height="25" rx="3"/>
+      <rect x="570" y="380" width="30" height="25" rx="3"/>
+      
+      <rect x="220" y="410" width="40" height="25" rx="3"/>
+      <rect x="265" y="410" width="30" height="25" rx="3"/>
+      <rect x="300" y="410" width="30" height="25" rx="3"/>
+      <rect x="335" y="410" width="30" height="25" rx="3"/>
+      <rect x="370" y="410" width="30" height="25" rx="3"/>
+      <rect x="405" y="410" width="30" height="25" rx="3"/>
+      <rect x="440" y="410" width="30" height="25" rx="3"/>
+      <rect x="475" y="410" width="30" height="25" rx="3"/>
+      <rect x="510" y="410" width="30" height="25" rx="3"/>
+      <rect x="545" y="410" width="30" height="25" rx="3"/>
+      <rect x="580" y="410" width="40" height="25" rx="3"/>
+    </g>
+  </g>
+  
+  <!-- Mouse -->
+  <ellipse cx="650" cy="420" rx="15" ry="20" fill="#2a2a3e" stroke="#1e1e2e"/>
+  
+  <!-- Lamp -->
+  <rect x="100" y="200" width="8" height="150" fill="#2a2a3e"/>
+  <path d="M 80 200 L 128 200 L 120 250 L 88 250 Z" fill="#2a2a3e"/>
+  <ellipse cx="104" cy="250" rx="60" ry="15" fill="url(#lampGlow)"/>
+  
+  <!-- Coffee Mug -->
+  <rect x="680" y="340" width="30" height="40" rx="4" fill="#7c3aed" opacity="0.6"/>
+  <path d="M 710 355 Q 720 355 720 365 Q 720 375 710 375" fill="none" stroke="#7c3aed" stroke-width="3" opacity="0.6"/>
+  
+  <!-- Plant -->
+  <rect x="50" y="330" width="20" height="30" rx="2" fill="#2a2a3e"/>
+  <circle cx="60" cy="320" r="15" fill="#00e5ff" opacity="0.3"/>
+  <circle cx="50" cy="310" r="12" fill="#00e5ff" opacity="0.3"/>
+  <circle cx="70" cy="315" r="10" fill="#00e5ff" opacity="0.3"/>
+  
+  <!-- Notes/Sticky -->
+  <rect x="600" y="250" width="60" height="60" fill="#7c3aed" opacity="0.2" transform="rotate(-5 630 280)"/>
+  <g font-family="monospace" font-size="6" fill="#e8e8f0" opacity="0.6">
+    <text x="610" y="270">TODO:</text>
+    <text x="610" y="280">- Code</text>
+    <text x="610" y="290">- Design</text>
+    <text x="610" y="300">- Deploy</text>
+  </g>
+  
+  <!-- Headphones -->
+  <path d="M 350 140 Q 400 120 450 140" fill="none" stroke="#00e5ff" stroke-width="3" opacity="0.6"/>
+  <circle cx="350" cy="140" r="8" fill="#00e5ff" opacity="0.6"/>
+  <circle cx="450" cy="140" r="8" fill="#00e5ff" opacity="0.6"/>
+</svg>

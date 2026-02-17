@@ -1,0 +1,21 @@
+// ============================================
+//   KARAN JEE PORTFOLIO — MAIN SASS FILE
+// ============================================
+
+// Import Bootstrap first
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+// Import custom variables and mixins
+@import 'variables';
+
+// Import base styles
+@import 'base';
+
+// Import component styles
+@import 'components';
+@import 'navigation';
+@import 'hero';
+@import 'images';
+
+// Import responsive styles
+@import 'responsive';

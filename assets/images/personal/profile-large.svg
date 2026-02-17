@@ -1,0 +1,73 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="profileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.1" />
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Glow -->
+  <circle cx="200" cy="200" r="180" fill="url(#bgGlow)"/>
+  
+  <!-- Outer Ring -->
+  <circle cx="200" cy="200" r="190" fill="none" stroke="url(#profileGrad)" stroke-width="2" opacity="0.5"/>
+  <circle cx="200" cy="200" r="185" fill="none" stroke="url(#profileGrad)" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Main Profile Circle -->
+  <circle cx="200" cy="200" r="170" fill="#0a0a0f" stroke="url(#profileGrad)" stroke-width="4"/>
+  
+  <!-- Person Illustration -->
+  <g filter="url(#glow)">
+    <!-- Head -->
+    <circle cx="200" cy="160" r="45" fill="url(#profileGrad)" opacity="0.8"/>
+    
+    <!-- Face Features -->
+    <circle cx="185" cy="155" r="3" fill="#0a0a0f"/>
+    <circle cx="215" cy="155" r="3" fill="#0a0a0f"/>
+    <path d="M 185 175 Q 200 185 215 175" fill="none" stroke="#0a0a0f" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Body -->
+    <path d="M 140 220 Q 200 200 260 220 L 250 320 Q 200 310 150 320 Z" fill="url(#profileGrad)" opacity="0.6"/>
+    
+    <!-- Shoulders -->
+    <path d="M 120 210 Q 200 190 280 210" fill="none" stroke="url(#profileGrad)" stroke-width="8" stroke-linecap="round"/>
+    
+    <!-- Initials -->
+    <text x="200" y="350" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#e8e8f0" text-anchor="middle">KJ</text>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <g opacity="0.3">
+    <circle cx="80" cy="80" r="3" fill="#00e5ff">
+      <animate attributeName="r" values="3;5;3" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="320" cy="80" r="3" fill="#7c3aed">
+      <animate attributeName="r" values="3;5;3" dur="3s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="80" cy="320" r="3" fill="#7c3aed">
+      <animate attributeName="r" values="3;5;3" dur="3s" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="320" cy="320" r="3" fill="#00e5ff">
+      <animate attributeName="r" values="3;5;3" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Code Snippet Background -->
+  <g opacity="0.1" font-family="monospace" font-size="10" fill="#00e5ff">
+    <text x="50" y="50">const developer = {</text>
+    <text x="50" y="65">  name: "Karan",</text>
+    <text x="50" y="80">  role: "Developer"</text>
+    <text x="50" y="95">};</text>
+  </g>
+</svg>

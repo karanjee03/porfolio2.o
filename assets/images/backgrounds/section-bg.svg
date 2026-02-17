@@ -1,0 +1,48 @@
+<svg width="1920" height="600" viewBox="0 0 1920 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sectionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#111118;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="dots" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="1" fill="#1e1e2e" opacity="0.5"/>
+    </pattern>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#00e5ff;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#00e5ff;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Base Background -->
+  <rect width="1920" height="600" fill="url(#sectionGrad)"/>
+  
+  <!-- Dot Pattern -->
+  <rect width="1920" height="600" fill="url(#dots)"/>
+  
+  <!-- Geometric Shapes -->
+  <g opacity="0.1">
+    <path d="M 0 100 L 200 0 L 400 100 L 200 200 Z" fill="#00e5ff"/>
+    <path d="M 1520 400 L 1720 300 L 1920 400 L 1720 500 Z" fill="#7c3aed"/>
+    <circle cx="960" cy="300" r="80" fill="none" stroke="#00e5ff" stroke-width="1"/>
+    <circle cx="960" cy="300" r="120" fill="none" stroke="#7c3aed" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Floating Lines -->
+  <g opacity="0.2">
+    <path d="M 100 300 Q 500 200 900 300" fill="none" stroke="#00e5ff" stroke-width="1"/>
+    <path d="M 1020 300 Q 1420 400 1820 300" fill="none" stroke="#7c3aed" stroke-width="1"/>
+  </g>
+  
+  <!-- Accent Lines -->
+  <rect x="0" y="299" width="1920" height="2" fill="url(#lineGrad)"/>
+  
+  <!-- Subtle Grid -->
+  <g opacity="0.1">
+    <line x1="0" y1="0" x2="0" y2="600" stroke="#1e1e2e" stroke-width="0.5"/>
+    <line x1="480" y1="0" x2="480" y2="600" stroke="#1e1e2e" stroke-width="0.5"/>
+    <line x1="960" y1="0" x2="960" y2="600" stroke="#1e1e2e" stroke-width="0.5"/>
+    <line x1="1440" y1="0" x2="1440" y2="600" stroke="#1e1e2e" stroke-width="0.5"/>
+    <line x1="1920" y1="0" x2="1920" y2="600" stroke="#1e1e2e" stroke-width="0.5"/>
+  </g>
+</svg>

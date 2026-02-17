@@ -1,0 +1,82 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#111118;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glow1" cx="20%" cy="30%" r="40%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#00e5ff;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="glow2" cx="80%" cy="70%" r="35%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.25" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0" />
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e1e2e" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Base Background -->
+  <rect width="1920" height="1080" fill="url(#heroGrad)"/>
+  
+  <!-- Grid Pattern -->
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+  
+  <!-- Large Glowing Orbs -->
+  <circle cx="384" cy="324" r="300" fill="url(#glow1)">
+    <animate attributeName="r" values="300;350;300" dur="8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="1536" cy="756" r="250" fill="url(#glow2)">
+    <animate attributeName="r" values="250;300;250" dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.25;0.4;0.25" dur="10s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Floating Elements -->
+  <g opacity="0.1">
+    <rect x="200" y="200" width="100" height="100" rx="10" fill="#00e5ff" transform="rotate(45 250 250)">
+      <animateTransform attributeName="transform" type="rotate" from="45 250 250" to="405 250 250" dur="20s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1600" y="800" width="80" height="80" rx="8" fill="#7c3aed" transform="rotate(30 1640 840)">
+      <animateTransform attributeName="transform" type="rotate" from="30 1640 840" to="390 1640 840" dur="15s" repeatCount="indefinite"/>
+    </rect>
+    <polygon points="1000,100 1050,150 1000,200 950,150" fill="#00e5ff">
+      <animateTransform attributeName="transform" type="rotate" from="0 1000 150" to="360 1000 150" dur="25s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+  
+  <!-- Code Lines -->
+  <g opacity="0.2" font-family="monospace" font-size="14" fill="#00e5ff">
+    <text x="100" y="400">&lt;div class="hero"&gt;</text>
+    <text x="100" y="420">  &lt;h1&gt;Karan Jee&lt;/h1&gt;</text>
+    <text x="100" y="440">  &lt;p&gt;Web Developer&lt;/p&gt;</text>
+    <text x="100" y="460">&lt;/div&gt;</text>
+  </g>
+  
+  <g opacity="0.15" font-family="monospace" font-size="12" fill="#7c3aed">
+    <text x="1500" y="200">const developer = {</text>
+    <text x="1500" y="220">  name: "Karan Jee",</text>
+    <text x="1500" y="240">  skills: ["React", "Node.js"],</text>
+    <text x="1500" y="260">  passionate: true</text>
+    <text x="1500" y="280">};</text>
+  </g>
+  
+  <!-- Particle Effects -->
+  <g opacity="0.3">
+    <circle cx="300" cy="500" r="2" fill="#00e5ff">
+      <animate attributeName="cy" values="500;100;500" dur="15s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;0" dur="15s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="800" cy="800" r="1.5" fill="#7c3aed">
+      <animate attributeName="cy" values="800;200;800" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;0" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1200" cy="300" r="2.5" fill="#00e5ff">
+      <animate attributeName="cy" values="300;900;300" dur="18s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;0" dur="18s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

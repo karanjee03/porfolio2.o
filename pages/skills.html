@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skills – Karan Jee</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/nav.css"/>
+  <link rel="stylesheet" href="../css/components.css"/>
+  <style>
+    .skills-full-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem; }
+    .skill-bar-list { display:flex;flex-direction:column;gap:1.2rem; }
+    .skill-bar-item {}
+    .skill-bar-header { display:flex;justify-content:space-between;margin-bottom:0.5rem; }
+    .skill-bar-name { font-family:'DM Mono',monospace;font-size:0.82rem;letter-spacing:0.05em; }
+    .skill-bar-pct { font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--accent); }
+    .skill-bar-track { height:4px;background:var(--border);border-radius:2px;overflow:hidden; }
+    .skill-bar-fill { height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;width:0;transition:width 1.2s ease; }
+    .tools-cloud { display:flex;flex-wrap:wrap;gap:0.8rem; }
+    .tool-pill {
+      font-family:'DM Mono',monospace;font-size:0.8rem;
+      padding:0.55rem 1.2rem;border-radius:2rem;
+      border:1px solid var(--border);color:var(--muted);
+      transition:all 0.2s;cursor:default;
+    }
+    .tool-pill:hover { border-color:var(--accent);color:var(--accent);transform:translateY(-2px); }
+    .cert-card {
+      background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+      padding:1.8rem;display:flex;align-items:center;gap:1.5rem;transition:border-color 0.2s;
+    }
+    .cert-card:hover { border-color:var(--accent); }
+    .cert-icon { font-size:2rem; }
+    .cert-title { font-size:1rem;font-weight:700;margin-bottom:0.3rem; }
+    .cert-sub { font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--muted);letter-spacing:0.05em; }
+    .certs-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">KJ.</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="projects.html">PROJECTS</a></li>
+    <li><a href="skills.html" class="active">SKILLS</a></li>
+    <li><a href="contact.html" class="nav-cta">CONTACT</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="skills.html">Skills</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="section-label">// SKILLS & EXPERTISE</div>
+  <h1>What I<br/><span style="background:linear-gradient(135deg,#00e5ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Know.</span></h1>
+  <p>A breakdown of the technologies, tools, and skills I've developed throughout my journey as a developer.</p>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PROFICIENCY BARS -->
+<section>
+  <div class="section-label">// PROFICIENCY</div>
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills-full-grid">
+    <div class="reveal">
+      <div class="skill-cat-title" style="font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.5rem;">FRONTEND</div>
+      <div class="skill-bar-list">
+        <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">HTML & CSS</span><span class="skill-bar-pct">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">JavaScript</span><span class="skill-bar-pct">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">React</span><span class="skill-bar-pct">75%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Responsive Design</span><span class="skill-bar-pct">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="skill-cat-title" style="font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.5rem;">BACKEND</div>
+      <div class="skill-bar-list">
+        <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Node.js</span><span class="skill-bar-pct">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Express</span><span class="skill-bar-pct">70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">MongoDB</span><span class="skill-bar-pct">65%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">REST APIs</span><span class="skill-bar-pct">75%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="skill-cat-title" style="font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.5rem;">OTHER</div>
+      <div class="skill-bar-list">
+        <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Python</span><span class="skill-bar-pct">65%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Git & GitHub</span><span class="skill-bar-pct">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Problem Solving</span><span class="skill-bar-pct">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Team Collaboration</span><span class="skill-bar-pct">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- TOOLS CLOUD -->
+<section class="bg-surface">
+  <div class="section-label">// TOOLS I USE</div>
+  <h2 class="section-title">Toolbox</h2>
+  <div class="tools-cloud reveal">
+    <span class="tool-pill">VS Code</span>
+    <span class="tool-pill">Git</span>
+    <span class="tool-pill">GitHub</span>
+    <span class="tool-pill">npm</span>
+    <span class="tool-pill">Chrome DevTools</span>
+    <span class="tool-pill">Postman</span>
+    <span class="tool-pill">MongoDB Compass</span>
+    <span class="tool-pill">Figma</span>
+    <span class="tool-pill">Terminal</span>
+    <span class="tool-pill">Notion</span>
+    <span class="tool-pill">Slack</span>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CURRENTLY LEARNING -->
+<section>
+  <div class="section-label">// ALWAYS GROWING</div>
+  <h2 class="section-title">Currently Learning</h2>
+  <div class="skills-full-grid">
+    <div class="skill-category reveal">
+      <div class="skill-cat-title">EXPLORING NEXT</div>
+      <div class="skill-tags">
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Next.js</span>
+        <span class="skill-tag">GraphQL</span>
+        <span class="skill-tag">Docker</span>
+      </div>
+    </div>
+    <div class="skill-category reveal">
+      <div class="skill-cat-title">INTERESTED IN</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Cloud (AWS)</span>
+        <span class="skill-tag">Web Performance</span>
+        <span class="skill-tag">Accessibility</span>
+        <span class="skill-tag">Testing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">KJ.</div>
+  <div class="footer-copy">© 2024 KARAN JEE</div>
+  <div class="footer-socials">
+    <a href="mailto:karan@example.com">EMAIL</a>
+    <a href="https://github.com/username" target="_blank">GITHUB</a>
+    <a href="https://linkedin.com/in/username" target="_blank">LINKEDIN</a>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/animations.js"></script>
+<script>
+  // Animate skill bars on scroll
+  const bars = document.querySelectorAll('.skill-bar-fill');
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const w = entry.target.dataset.width;
+        entry.target.style.width = w + '%';
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  bars.forEach(b => barObserver.observe(b));
+</script>
+</body>
+</html>
