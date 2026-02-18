@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Preview - AI Builder</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .preview-header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+        
+        .preview-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .preview-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .preview-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+        
+        .preview-frame {
+            width: 100%;
+            height: 100vh;
+            border: none;
+            margin-top: 50px;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f3f4f6;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #e5e7eb;
+            border-top: 5px solid #6366f1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-header">
+        <div>
+            <strong>🤖 AI Site Preview</strong>
+            <span id="siteName" style="margin-left: 10px; opacity: 0.8;"></span>
+        </div>
+        <div class="preview-actions">
+            <a href="#" class="preview-btn" onclick="openInNewTab()">
+                <i class="fas fa-external-link-alt"></i> Open in New Tab
+            </a>
+            <a href="#" class="preview-btn" onclick="editSite()">
+                <i class="fas fa-edit"></i> Edit Site
+            </a>
+            <a href="ai-site-builder.html" class="preview-btn">
+                <i class="fas fa-plus"></i> Create New Site
+            </a>
+        </div>
+    </div>
+    
+    <div id="loading" class="loading">
+        <div>
+            <div class="spinner"></div>
+            <p style="margin-top: 20px; color: #6b7280;">Loading site preview...</p>
+        </div>
+    </div>
+    
+    <iframe id="previewFrame" class="preview-frame" style="display: none;"></iframe>
+    
+    <script>
+        let siteData = null;
+        let siteId = null;
+        
+        // Get site ID from URL
+        function getSiteId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+        
+        // Load site data
+        function loadSite() {
+            siteId = getSiteId();
+            
+            if (!siteId) {
+                showError('No site ID provided');
+                return;
+            }
+            
+            // Get site from localStorage
+            const siteFiles = localStorage.getItem(`site-${siteId}`);
+            const deployedSites = JSON.parse(localStorage.getItem('deployed-sites') || '[]');
+            const siteInfo = deployedSites.find(site => site.siteId === siteId);
+            
+            if (!siteFiles && !siteInfo) {
+                showError('Site not found');
+                return;
+            }
+            
+            if (siteInfo) {
+                siteData = siteInfo.siteData;
+                document.getElementById('siteName').textContent = `- ${siteData.siteName}`;
+            }
+            
+            if (siteFiles) {
+                const files = JSON.parse(siteFiles);
+                loadPreview(files);
+            } else {
+                showError('Site files not found');
+            }
+        }
+        
+        // Load preview in iframe
+        function loadPreview(files) {
+            const iframe = document.getElementById('previewFrame');
+            const loading = document.getElementById('loading');
+            
+            // Create HTML content
+            const htmlContent = files['index.html'] || createDefaultHTML();
+            
+            // Load in iframe
+            iframe.srcdoc = htmlContent;
+            iframe.style.display = 'block';
+            loading.style.display = 'none';
+            
+            // Set iframe title
+            iframe.onload = function() {
+                try {
+                    iframe.contentDocument.title = siteData ? siteData.siteName : 'AI Generated Site';
+                } catch (e) {
+                    // Cross-origin issue, ignore
+                }
+            };
+        }
+        
+        // Create default HTML if not found
+        function createDefaultHTML() {
+            return `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>AI Generated Site</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            margin: 0;
+                            padding: 20px;
+                            background: linear-gradient(135deg, #667eea, #764ba2);
+                            min-height: 100vh;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        .container {
+                            background: white;
+                            padding: 40px;
+                            border-radius: 20px;
+                            text-align: center;
+                            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+                            max-width: 600px;
+                        }
+                        h1 {
+                            color: #6366f1;
+                            margin-bottom: 20px;
+                        }
+                        p {
+                            color: #6b7280;
+                            line-height: 1.6;
+                        }
+                        .badge {
+                            background: #6366f1;
+                            color: white;
+                            padding: 5px 15px;
+                            border-radius: 20px;
+                            font-size: 14px;
+                            margin: 5px;
+                            display: inline-block;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h1>🤖 AI Generated Site</h1>
+                        <p>This site was created using AI technology and is ready for customization!</p>
+                        <div>
+                            <span class="badge">✨ Modern Design</span>
+                            <span class="badge">📱 Responsive</span>
+                            <span class="badge">🚀 Fast Loading</span>
+                            <span class="badge">🎯 SEO Optimized</span>
+                        </div>
+                        <p style="margin-top: 30px;">
+                            <strong>Site ID:</strong> ${siteId}<br>
+                            <strong>Created:</strong> ${new Date().toLocaleString()}
+                        </p>
+                    </div>
+                </body>
+                </html>
+            `;
+        }
+        
+        // Show error
+        function showError(message) {
+            document.getElementById('loading').innerHTML = `
+                <div style="text-align: center;">
+                    <div style="font-size: 48px; color: #ef4444; margin-bottom: 20px;">⚠️</div>
+                    <h2 style="color: #374151;">Error</h2>
+                    <p style="color: #6b7280;">${message}</p>
+                    <a href="ai-site-builder.html" style="color: #6366f1; text-decoration: none;">
+                        ← Back to Builder
+                    </a>
+                </div>
+            `;
+        }
+        
+        // Open in new tab
+        function openInNewTab() {
+            const iframe = document.getElementById('previewFrame');
+            const content = iframe.srcdoc;
+            
+            if (content) {
+                const newWindow = window.open();
+                newWindow.document.write(content);
+                newWindow.document.close();
+            }
+        }
+        
+        // Edit site
+        function editSite() {
+            // Redirect to editor with site ID
+            window.location.href = `site-editor.html?id=${siteId}`;
+        }
+        
+        // Load site when page loads
+        window.addEventListener('load', loadSite);
+        
+        // Handle URL changes
+        window.addEventListener('popstate', loadSite);
+    </script>
+</body>
+</html>
